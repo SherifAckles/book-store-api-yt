@@ -69,11 +69,19 @@ app.get("/api/books", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
-// Set CSP header to allow loading font from specified URL
+/// Set CSP header to allow loading font from specified URL
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
     "default-src 'none'; font-src 'self' https://books-store-api-yt.onrender.com/"
   );
   next();
+});
+
+app.get("/api/books", (req, res) => {
+  res.json(books);
+});
+
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
