@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const port = 3001; // Use the default port 3000
+const port = 3000; // Use the default port 3000
 
 const books = [
   {
@@ -62,14 +62,6 @@ const books = [
   },
 ];
 
-app.get("/api/books", (req, res) => {
-  res.json(books);
-});
-
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
-});
-/// Set CSP header to allow loading font from specified URL
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
@@ -85,3 +77,6 @@ app.get("/api/books", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
+
+
+
